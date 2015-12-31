@@ -4,6 +4,6 @@
 public class main {
 
     public static void main(String[] args) throws Exception {
-
+        TopologyProducer tp=new TopologyProducer();
     }
 }

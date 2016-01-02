@@ -7,17 +7,18 @@ import java.util.Scanner;
 /**
  * Created by I309939 on 12/31/2015.
  */
-public class TopologyProducer {
+public class Topology {
     public mygraph g;
     protected String styleSheet =
             "node {" +
                     "   fill-color: black;" +
+                    "   size: 15px, 15px;" +
                     "}" +
                     "node.marked {" +
                     "   fill-color: red;" +
                     "}";
 
-    public TopologyProducer() throws FileNotFoundException {
+    public Topology() throws FileNotFoundException {
 
         //Digraph dag = DigraphGenerator.dag(6, 8);
         //System.out.println(dag);
@@ -47,6 +48,8 @@ public class TopologyProducer {
 
         }
         g.addAttribute("ui.stylesheet", styleSheet);
+        g.addAttribute("ui.antialias");
+        g.addAttribute("ui.quality");
         g.display();
     }
 

@@ -25,9 +25,13 @@ public class mygraph extends SingleGraph {
 
     public mynode addNode(String id, int pd, int fd) {
 
-        mynode n=this.<mynode>addNode(id);
+        mynode n = this.addNode(id);
+        n.addAttribute("ui.label", id);
         n.setPd(pd);
         n.setFd(fd);
         return n;
     }
+
+
+
 }

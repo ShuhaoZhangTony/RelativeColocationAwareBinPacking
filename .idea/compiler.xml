@@ -25,6 +25,8 @@
         <module name="RelativeColocationAware BinPacking" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="RelativeColocationAware BinPacking" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
-

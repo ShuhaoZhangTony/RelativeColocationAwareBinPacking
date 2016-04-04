@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RelativeColocationAware BinPacking.iml" filepath="$PROJECT_DIR$/RelativeColocationAware BinPacking.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RBP.iml" filepath="$PROJECT_DIR$/RBP.iml" />
     </modules>
   </component>
 </project>
-

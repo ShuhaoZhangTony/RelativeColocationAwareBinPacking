@@ -24,7 +24,7 @@ public class Topology {
         //System.out.println(dag);
         // System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
 
-        g = new mygraph("Tutorial 1");
+        g = new mygraph("my topology");
         Scanner sc = new Scanner(new File(getClass().getClassLoader().getResource("dag.txt").getFile()));
 
         sc.nextLine();
@@ -32,6 +32,7 @@ public class Topology {
             String[] array = sc.nextLine().trim().split(":");
             String node = array[0];
             if (g.getNode(node) == null) {
+                //TODO-tony:replace with actual processing demand of each nodes.
                 g.addNode(node, 5, 3);
             }
             if (array.length > 1) {
@@ -40,9 +41,11 @@ public class Topology {
                     String to = _sc.next();
 
                     if (g.getNode(to) == null) {
+                        //TODO-tony:replace with actual processing demand of each nodes.
                         g.addNode(to, 5, 3);
                     }
                     g.addEdge(node.concat(to), node, to, true);
+
                 }
             }
 

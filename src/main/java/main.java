@@ -1,3 +1,4 @@
+import math.parser;
 import util.Variable;
 import util.mygraph;
 import util.mynode;
@@ -34,13 +35,18 @@ public class main {
         //determine how many variables are there.
         //List<List<Double>> partitionPlan = new ArrayList<List<Double>>();//first dimension stands for source, the second dimension stands for destination.
         VarList = new Variable_list();
-        buildVarListwith_h();
+        buildVarListwithout_h();
 
 
         for (int s = 0; s < n; s++) {
             System.out.println(L(s));
+            parser.getTerms(L(s));
         }
+
+
+
     }
+
     //build variable list with h constraint function.
     private static void buildVarListwith_h() {
         int i = 0;
@@ -85,15 +91,17 @@ public class main {
                 mynode mn_dest;
                 StringBuffer sb = new StringBuffer();
 
-                for (j = 0; j < size; j++) {
+                for (j = 0; j < size - 1; j++) {
                     mn_dest = destinations.get(j);
                     VarList.add(new Variable(mn.getId(), mn_dest.getId(), "P_" + i));
                     sb.append("P_" + i);
-                    if (j != size - 1)
+                    if (j != size - 2)
                         sb.append("+");
                     i++;
                 }
-                System.out.println(("h_" + (++h) + ":").concat(sb.toString().concat("=1")));
+                mn_dest = destinations.get(j);//last one
+                VarList.add(new Variable(mn.getId(), mn_dest.getId(), "(1-(" + sb.toString() + "))"));
+                //System.out.println(("h_" + (++h) + ":").concat(sb.toString().concat("=1")));
             } else if (size == 1) {
                 mynode mn_dest = destinations.peek();
                 VarList.add(new Variable(mn.getId(), mn_dest.getId(), "1"));//only single destination, no variable needed.
